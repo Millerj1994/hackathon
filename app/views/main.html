@@ -1,5 +1,5 @@
 <md-content>
-    <md-tabs md-dynamic-height md-border-bottom md-autoselect md-swipe-content md-enable-disconnect="true" md-swipe-content="true">
+    <md-tabs md-selected="main.selectedIndex" md-dynamic-height md-border-bottom md-autoselect md-swipe-content md-enable-disconnect="true" md-swipe-content="true">
       <md-tab label="{{position.topic}}" ng-repeat="position in main.positions track by $index">
         <md-content class="md-padding">
           <h1 class="md-display-2">{{position.topic}}</h1>

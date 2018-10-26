@@ -12,6 +12,7 @@ angular.module('danimalsApp')
   	var danimalsS3 = 'https://s3-us-west-2.amazonaws.com/danimals.io/';
   	var danimalsDataJSON = 'SyngentaPositions.json';
     var danimalsSpecialJSON = 'specialNews.json';
+    var danimalsOrientationJSON = 'orientation.json';
   	this.selectedPosition = null;
   	var self = this;
     $http.get(danimalsS3 + danimalsDataJSON).then(function(data){
@@ -35,6 +36,7 @@ angular.module('danimalsApp')
     });
 
     var specialMessage = null;
+
     setInterval(function(){ 
       $http.get(
         danimalsS3 + danimalsSpecialJSON
@@ -55,8 +57,21 @@ angular.module('danimalsApp')
                 .ok('Got it!')
             );
           };
-          console.log(data);
           specialMessage = message;
         }
       );}, 3000);
+
+    setInterval(function(){ 
+      $http.get(
+        danimalsS3 + danimalsOrientationJSON
+      ).then(
+        function(data){
+          console.log(data.data, self.selectedIndex);
+          if(data.data.position === 'right'){
+            self.selectedIndex = self.selectedIndex + 1;
+          } else if (data.data.position === 'left' && self.selectedIndex!==0){
+            self.selectedIndex = self.selectedIndex - 1;
+          } 
+        }
+      );}, 500);
 });
