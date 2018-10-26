@@ -1,0 +1,30 @@
+<md-dialog aria-label="Mango (Fruit)" md-swipe-left="cancel()" md-swipe-right="answer(true)">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Here's what I found!</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content md-swipe-left="cancel()" md-swipe-right="answer(true)">
+      <div class="md-dialog-content">
+        <p>{{fact}}</p>
+        
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="cancel()" hide-xs hide-sm>
+       Not interested
+      </md-button>
+      <md-button ng-click="answer(true)" hide-xs hide-sm>
+       Save
+      </md-button>
+      <md-button ng-click="answer(false)">
+       Read More
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

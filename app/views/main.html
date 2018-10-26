@@ -1,3 +1,19 @@
+<md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools" layout-row="row">
+          <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+            <md-icon md-font-library="material-icons">menu</md-icon>
+          </md-button>
+          <div flex="100" layout="row" layout-align="center center" layout-margin layout-padding>
+            <img src="/images/danimals-small.png"/>
+          </div>
+          <md-button class="md-icon-button" aria-label="Settings" ng-click="main.showAlert()">
+            <md-icon md-font-library="material-icons">bookmark</md-icon>
+            
+          </md-button>
+          <p style="color:green" ng-if="main.savedFacts.length"> {{main.savedFacts.length}}</p>
+          <p ng-if="!main.savedFacts.length"> {{main.savedFacts.length}}</p>
+        </div>
+</md-toolbar>
 <md-content>
     <md-tabs md-selected="main.selectedIndex" md-dynamic-height md-border-bottom md-autoselect md-swipe-content md-enable-disconnect="true" md-swipe-content="true">
       <md-tab label="{{position.topic}}" ng-repeat="position in main.positions track by $index">
