@@ -1,0 +1,19 @@
+<md-content>
+    <md-tabs md-dynamic-height md-border-bottom md-autoselect md-swipe-content md-enable-disconnect="true" md-swipe-content="true">
+      <md-tab label="{{position.topic}}" ng-repeat="position in main.positions track by $index">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">{{position.topic}}</h1>
+          <p>{{position.positionkeymessages}}</p>
+          <p>{{position.background}}</p>
+          <ul>
+            <li ng-repeat="message in position.keymessages track by $index">{{message}}</li>
+          </ul>
+          <md-chips ng-model="position.tags" md-removable="false">
+            <md-chip-template>
+              <strong>{{$chip}}</strong>
+            </md-chip-template>
+          </md-chips>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
